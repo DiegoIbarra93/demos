@@ -8,6 +8,135 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "Winery"],
+        "@id": "https://demo.ibarraventures.com/long-walk-vineyard/#business",
+        "name": "Long Walk Vineyard & Orchard",
+        "description": "Family-owned vineyard and orchard winery in Ashland, Oregon. Estate-grown wines, wine tastings, orchard walks, and seasonal events in the Rogue Valley.",
+        "url": "https://demo.ibarraventures.com/long-walk-vineyard/",
+        "telephone": "+1-541-552-0534",
+        "priceRange": "$$",
+        "image": "https://demo.ibarraventures.com/long-walk-vineyard/og-image.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "",
+          "addressLocality": "Ashland",
+          "addressRegion": "OR",
+          "postalCode": "97520",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "42.1946",
+          "longitude": "-122.7095"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "11:00",
+            "closes": "18:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday"],
+            "description": "Closed"
+          }
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "Ashland", "containedInPlace": { "@type": "State", "name": "Oregon" } },
+          { "@type": "City", "name": "Medford", "containedInPlace": { "@type": "State", "name": "Oregon" } },
+          { "@type": "City", "name": "Talent", "containedInPlace": { "@type": "State", "name": "Oregon" } },
+          { "@type": "State", "name": "Oregon" }
+        ],
+        "knowsAbout": [
+          "Wine Tasting", "Estate Wine", "Winery", "Vineyard", "Orchard Wine", "Tempranillo", "Viognier", "Rosé", "Private Tastings", "Rogue Valley Wine"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Wine & Tastings",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tasting House Wine Flights" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wine by the Glass" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Private Tastings by Appointment" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Orchard Walk & Wine Tasting" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Estate Tempranillo" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Estate Viognier" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Orchard Rosé" } }
+          ]
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["#hero-title", ".hero-desc"]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://demo.ibarraventures.com/long-walk-vineyard/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the tasting room hours at Long Walk Vineyard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our Tasting House is open Wednesday through Sunday, 11am to 6pm. We are closed Monday and Tuesday. Private tastings are available by appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is Long Walk Vineyard & Orchard located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Long Walk Vineyard & Orchard is located in Ashland, Oregon, in the Rogue Valley. We are a family-owned vineyard and orchard winery producing estate-grown wines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer private tastings or group reservations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Walk-ins are always welcome. For groups of eight or more, or for a private tasting experience, please call us at 541.552.0534 to reserve in advance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What wines do you produce?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We produce small-lot estate wines including Tempranillo, Viognier, and Orchard Rosé, all grown in our Ashland vineyard in Southern Oregon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I host an event at the vineyard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Long Walk Vineyard hosts seasonal gatherings, release parties, orchard walks, and private events. Contact us at 541.552.0534 to discuss availability."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://demo.ibarraventures.com/long-walk-vineyard/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://demo.ibarraventures.com/long-walk-vineyard/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --alabaster: #f7f5f2;
