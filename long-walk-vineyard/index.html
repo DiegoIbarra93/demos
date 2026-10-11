@@ -230,6 +230,8 @@
 
     .logo {
       text-decoration: none;
+      min-width: 0;
+      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -238,12 +240,15 @@
     .logo-placeholder {
       display: inline-grid;
       place-items: center;
-      width: 6rem;
-      height: 36px;
+      width: 44px;
+      height: 44px;
+      padding: 2px;
+      text-align: center;
+      line-height: 1.15;
       border: 1.5px dashed var(--brass);
       border-radius: 4px;
       font-family: 'Inter', system-ui, sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.56rem;
       font-weight: 600;
       color: var(--brass);
       flex-shrink: 0;
@@ -266,7 +271,7 @@
 
     .logo-text {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.35rem;
+      font-size: clamp(1rem, 5vw, 1.35rem);
       font-weight: 600;
       letter-spacing: -0.01em;
       color: var(--warm-charcoal);
@@ -1275,7 +1280,7 @@
     <div class="container">
       <div class="header-inner">
         <a href="#" class="logo" aria-label="[Insert Business Name] homepage">
-          <span class="logo-placeholder" aria-hidden="true">&lt;Add Logo&gt;</span>
+          <span class="logo-placeholder" aria-hidden="true">&lt;Add<br>Logo&gt;</span>
           <span class="logo-text">[Insert Business Name]</span>
         </a>
 
@@ -1572,7 +1577,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <span class="logo-placeholder" aria-hidden="true" style="margin-bottom:12px">&lt;Add Logo&gt;</span>
+          <span class="logo-placeholder" aria-hidden="true" style="margin-bottom:12px">&lt;Add<br>Logo&gt;</span>
           <p class="logo-text">[Insert Business Name]</p>
           <p>A family-owned vineyard and orchard winery in Ashland, Oregon. Estate wines, warm hospitality, and long afternoons in the Rogue Valley.</p>
         </div>
