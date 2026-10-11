@@ -1,0 +1,8 @@
+services:
+  demos:
+    image: ghcr.io/diegoibarra93/demos:latest
+    restart: unless-stopped
+    ports:
+      - "8087:80"
+    labels:
+      - "komodo.managed=true"
