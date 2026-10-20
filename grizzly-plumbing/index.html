@@ -72,12 +72,23 @@
         </div>
         <div class="hero-route" aria-hidden="true">
           <svg viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="route-svg">
-            <path class="route-line" d="M40 280 L40 200 Q40 160 80 160 L280 160 Q320 160 320 120 L320 40" stroke="#014235" stroke-width="8" stroke-linecap="round" fill="none"/>
-            <circle class="route-node" cx="40" cy="280" r="12" fill="#014235"/>
-            <circle class="route-node" cx="320" cy="40" r="12" fill="#014235"/>
-            <circle class="route-node" cx="180" cy="160" r="8" fill="#DCE3F5" stroke="#014235" stroke-width="3"/>
-            <text x="42" y="305" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#014235">You</text>
-            <text x="250" y="30" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600" fill="#014235">Clear fix</text>
+            <!-- Interconnected plumbing pipe system -->
+            <rect x="20" y="20" width="320" height="280" rx="16" fill="#DCE3F5" stroke="#014235" stroke-width="2" stroke-dasharray="4 4"/>
+            <!-- Main supply pipe -->
+            <path class="route-line" d="M60 260 L60 160 L180 160 L180 80 L300 80" stroke="#014235" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Branch pipe -->
+            <path d="M180 160 L180 240 L260 240" stroke="#014235" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Fixture / Valve Nodes -->
+            <circle cx="60" cy="260" r="10" fill="#014235"/>
+            <circle cx="180" cy="80" r="8" fill="#DCE3F5" stroke="#014235" stroke-width="4"/>
+            <circle cx="300" cy="80" r="12" fill="#014235"/>
+            <circle cx="260" cy="240" r="9" fill="#014235"/>
+            <!-- Pressure Gauge Indicator -->
+            <circle cx="180" cy="160" r="14" fill="#ffffff" stroke="#014235" stroke-width="3"/>
+            <line x1="180" y1="160" x2="188" y2="152" stroke="#014235" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="180" cy="160" r="2" fill="#014235"/>
+            <!-- Clean subtle label -->
+            <text x="180" y="285" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" fill="#014235" text-anchor="middle" letter-spacing="0.08em">SYSTEM SCHEMATIC</text>
           </svg>
         </div>
       </div>
@@ -183,15 +194,20 @@
             <div class="areas-map" aria-label="Service area map illustration">
               <svg viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="area-svg">
                 <rect width="400" height="220" rx="8" fill="#DCE3F5"/>
-                <path d="M60 180 Q120 120 180 140 T320 80" stroke="#014235" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 6" fill="none"/>
-                <circle cx="180" cy="140" r="10" fill="#014235"/>
-                <text x="170" y="165" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" fill="#014235">Ashland</text>
-                <circle cx="260" cy="110" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
-                <text x="250" y="95" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Medford</text>
-                <circle cx="120" cy="130" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
-                <text x="100" y="120" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Talent</text>
-                <circle cx="320" cy="80" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
-                <text x="310" y="70" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Eagle Point</text>
+                <!-- Rogue Valley transit/service corridor from Ashland (South) to Eagle Point (North) -->
+                <path d="M70 170 Q130 145 190 120 T330 60" stroke="#014235" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 6" fill="none"/>
+                <!-- Ashland (South - Base of operations) -->
+                <circle cx="70" cy="170" r="10" fill="#014235"/>
+                <text x="60" y="195" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#014235">Ashland</text>
+                <!-- Talent (North of Ashland) -->
+                <circle cx="140" cy="140" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
+                <text x="125" y="125" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Talent</text>
+                <!-- Phoenix / Medford (North along corridor) -->
+                <circle cx="230" cy="100" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
+                <text x="215" y="85" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Medford</text>
+                <!-- Eagle Point (Northern Valley) -->
+                <circle cx="330" cy="60" r="6" fill="#ffffff" stroke="#014235" stroke-width="2"/>
+                <text x="310" y="48" font-family="Space Grotesk, sans-serif" font-size="11" fill="#014235">Eagle Point</text>
               </svg>
             </div>
           </div>
@@ -204,8 +220,8 @@
               <li><a href="#request" data-city="Medford">Medford</a></li>
               <li><a href="#request" data-city="Central Point">Central Point</a></li>
               <li><a href="#request" data-city="White City">White City</a></li>
+              <li><a href="#request" data-city="Jacksonville">Jacksonville</a></li>
               <li><a href="#request" data-city="Eagle Point">Eagle Point</a></li>
-              <li><a href="#request" data-city="Southern Oregon">Southern Oregon</a></li>
             </ul>
           </div>
         </div>
@@ -936,7 +952,7 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 3rem;
-      align-items: start;
+      align-items: stretch;
     }
 
     .areas-map {
@@ -957,6 +973,9 @@
       border-radius: var(--radius);
       padding: 2rem;
       box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .areas-subhead {
