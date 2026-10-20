@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ibarra Ventures demo portfolio — live demo sites for local businesses, artisans, and service brands. Built for conversion.">
+  <meta name="robots" content="index, follow">
+  <title>Ibarra Ventures Demo Portal</title>
+  <link rel="canonical" href="https://demo.ibarraventures.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://demo.ibarraventures.com/">
+  <meta property="og:title" content="Ibarra Ventures Demo Portal">
+  <meta property="og:description" content="Live demo sites for local businesses, artisans, and service brands. Built for conversion.">
+  <meta property="og:site_name" content="Ibarra Ventures Demo Portal">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X07CW4QF0G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X07CW4QF0G');
+  </script>
+
+  <style>
+    :root {
+      /* Core palette */
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --blue-800: #1e40af;
+      --blue-50: #eff6ff;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --amber-500: #f59e0b;
+      --amber-400: #fbbf24;
+      --amber-100: #fef3c7;
+      --white: #ffffff;
+
+      /* Typography scale (1.25 ratio) */
+      --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.84rem + 0.18vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.35rem);
+      --text-xl: clamp(1.35rem, 1.15rem + 0.95vw, 1.75rem);
+      --text-2xl: clamp(1.65rem, 1.4rem + 1.2vw, 2.25rem);
+      --text-3xl: clamp(2.05rem, 1.65rem + 1.9vw, 3.25rem);
+      --text-4xl: clamp(2.5rem, 1.9rem + 2.8vw, 4.25rem);
+
+      /* Spacing scale */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-8: 3rem;
+      --space-10: 4rem;
+      --space-12: 5rem;
+
+      /* Radius & shadow */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.625rem;
+      --radius-lg: 0.875rem;
+      --radius-xl: 1.125rem;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+      --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.25);
+
+      /* Layout */
+      --container-max: 75rem;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--slate-700);
+      background: var(--slate-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(100% - var(--space-6), var(--container-max));
+      margin-inline: auto;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Focus */
+    a:focus-visible,
+    button:focus-visible {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    /* Header */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--slate-200);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4.25rem;
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-weight: 800;
+      font-size: var(--text-lg);
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .brand-mark svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .header-note {
+      display: none;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-500);
+    }
+
+    @media (min-width: 640px) {
+      .header-note {
+        display: block;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 8rem 0 var(--space-12);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
+        var(--slate-50);
+      overflow: hidden;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--slate-200) 1px, transparent 1px),
+        linear-gradient(90deg, var(--slate-200) 1px, transparent 1px);
+      background-size: 3.5rem 3.5rem;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 46rem;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: var(--amber-100);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-800);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-kicker svg {
+      width: 1rem;
+      height: 1rem;
+      color: #d97706;
+    }
+
+    .hero-title {
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--slate-900);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-title em {
+      color: var(--blue-600);
+      font-style: normal;
+    }
+
+    .hero-desc {
+      font-size: var(--text-lg);
+      color: var(--slate-600);
+      max-width: 34rem;
+      margin-bottom: var(--space-6);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.875em 1.5em;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      line-height: 1.25;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn svg {
+      width: 1.125em;
+      height: 1.125em;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      background: var(--blue-600);
+      color: var(--white);
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-700);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--slate-800);
+      border-color: var(--slate-300);
+    }
+
+    .btn-secondary:hover {
+      background: var(--slate-50);
+      border-color: var(--slate-400);
+    }
+
+    /* Sections */
+    .section {
+      padding: var(--space-12) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 38rem;
+      margin: 0 auto var(--space-8);
+    }
+
+    .section-label {
+      display: block;
+      font-size: var(--text-xs);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-600);
+      margin-bottom: var(--space-3);
+    }
+
+    .section-title {
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--slate-900);
+      margin-bottom: var(--space-3);
+    }
+
+    .section-desc {
+      color: var(--slate-600);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+    }
+
+    /* Demo cards */
+    .demos {
+      background: var(--white);
+      border-top: 1px solid var(--slate-200);
+    }
+
+    .demo-grid {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .demo-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--slate-300);
+    }
+
+    .demo-card:focus-within {
+      box-shadow: var(--shadow-lg), var(--shadow-focus);
+    }
+
+    .demo-art {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+    }
+
+    .demo-art::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      background-image: radial-gradient(circle at 1rem 1rem, currentColor 1px, transparent 1px);
+      background-size: 1.5rem 1.5rem;
+    }
+
+    .demo-art.plumbing {
+      background: linear-gradient(135deg, #0c1a2e 0%, #1a3454 100%);
+    }
+
+    .demo-art.vineyard {
+      background: linear-gradient(135deg, #3a3028 0%, #5c4f3f 100%);
+    }
+
+    .demo-art.tarps {
+      background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-700) 100%);
+    }
+
+    .demo-art svg {
+      position: relative;
+      width: 4rem;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    .demo-art .badge {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-3);
+      padding: var(--space-1) var(--space-2);
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius-sm);
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-800);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .demo-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: var(--space-2);
+      padding: var(--space-5);
+    }
+
+    .demo-tag {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue-600);
+    }
+
+    .demo-title {
+      font-size: var(--text-xl);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--slate-900);
+    }
+
+    .demo-desc {
+      color: var(--slate-600);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .demo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+      font-weight: 700;
+      color: var(--blue-600);
+      transition: gap 0.15s ease;
+    }
+
+    .demo-link svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .demo-card:hover .demo-link {
+      gap: var(--space-3);
+    }
+
+    @media (min-width: 768px) {
+      .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .demo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--slate-900);
+      color: var(--slate-400);
+      padding: var(--space-8) 0 var(--space-6);
+      font-size: var(--text-sm);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .footer-brand svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--blue-600);
+    }
+
+    @media (min-width: 640px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Ibarra Ventures Demo Portal home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        <span>Ibarra Ventures</span>
+      </a>
+      <span class="header-note">Demo Portal</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="hero-kicker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Live demo sites
+        </span>
+        <h1 id="hero-title" class="hero-title">Conversion-ready websites <em>built for real businesses</em></h1>
+        <p class="hero-desc">A portfolio of production-ready demo sites: local services, luxury brands, and artisan trades. Each one is fast, mobile-first, and designed to turn visitors into customers.</p>
+        <div class="hero-actions">
+          <a href="#demos" class="btn btn-primary">
+            Explore demos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="https://ibarraventures.com/" class="btn btn-secondary" target="_blank" rel="noopener">Visit Ibarra Ventures</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="demos" class="section demos" aria-labelledby="demos-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Demo Sites</span>
+          <h2 id="demos-title" class="section-title">Three industries, one design standard</h2>
+          <p class="section-desc">Click through to see how the same core system adapts to a plumber, a vineyard, and a local tarp & awning company.</p>
+        </div>
+
+        <div class="demo-grid">
+          <article class="demo-card">
+            <a href="cowboy-plumbing/" class="demo-art plumbing" aria-hidden="true" tabindex="-1">
+              <span class="badge">Service / Local</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h4v8H4z"/><path d="M16 8h4v8h-4z"/><path d="M8 12h8"/><path d="M12 12v6"/><circle cx="12" cy="20" r="2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+              <span class="sr-only">Cowboy Plumbing demo</span>
+            </a>
+            <div class="demo-body">
+              <span class="demo-tag">Plumbing</span>
+              <h3 class="demo-title">Cowboy Plumbing</h3>
+              <p class="demo-desc">A local-trade site for a veteran-owned plumber in Medford, OR. Built around trust badges, clear service cards, and high-visibility CTAs.</p>
+              <span class="demo-link">
+                View demo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <a href="long-walk-vineyard/" class="demo-art vineyard" aria-hidden="true" tabindex="-1">
+              <span class="badge">Luxury / Hospitality</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C7 7 4 12 4 16a8 8 0 0 0 16 0c0-4-3-9-8-14z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>
+              <span class="sr-only">Long Walk Vineyard demo</span>
+            </a>
+            <div class="demo-body">
+              <span class="demo-tag">Winery</span>
+              <h3 class="demo-title">Long Walk Vineyard</h3>
+              <p class="demo-desc">An elegant winery homepage in Ashland, OR. Editorial typography, warm neutrals, and reservation-focused flows for tastings and events.</p>
+              <span class="demo-link">
+                View demo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <a href="sharps-tarps/" class="demo-art tarps" aria-hidden="true" tabindex="-1">
+              <span class="badge">Artisan / Retail</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/><path d="M12 12l9-4.5"/><path d="M12 12v9"/></svg>
+              <span class="sr-only">Sharp's Tarps demo</span>
+            </a>
+            <div class="demo-body">
+              <span class="demo-tag">Tarp & Awning</span>
+              <h3 class="demo-title">Sharp's Tarps</h3>
+              <p class="demo-desc">A hardworking product + quote site for a custom-tarp artisan. Quick-view galleries, trust markers, and a clear path to request an estimate.</p>
+              <span class="demo-link">
+                View demo
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand" aria-label="Ibarra Ventures">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Ibarra Ventures
+      </div>
+      <p>Branding, web design, and conversion systems for growing businesses.</p>
+    </div>
+  </footer>
+</body>
+</html>
