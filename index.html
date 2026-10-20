@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ibarra Ventures demo portfolio — live demo sites for local businesses, artisans, and service brands. Built for conversion.">
+  <meta name="description" content="Ibarra Ventures Demo Portal — live demo sites for local businesses, artisans, and service brands. Your site reimagined and optimized for SEO and AEO.">
   <meta name="robots" content="index, follow">
   <title>Ibarra Ventures Demo Portal</title>
   <link rel="canonical" href="https://demo.ibarraventures.com/">
@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://demo.ibarraventures.com/">
   <meta property="og:title" content="Ibarra Ventures Demo Portal">
-  <meta property="og:description" content="Live demo sites for local businesses, artisans, and service brands. Built for conversion.">
+  <meta property="og:description" content="Live demo sites for local businesses, artisans, and service brands. Your site reimagined and optimized for SEO and AEO.">
   <meta property="og:site_name" content="Ibarra Ventures Demo Portal">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X07CW4QF0G"></script>
@@ -31,25 +31,20 @@
 
   <style>
     :root {
-      /* Core palette */
-      --blue-600: #2563eb;
-      --blue-700: #1d4ed8;
-      --blue-800: #1e40af;
-      --blue-50: #eff6ff;
-      --slate-900: #0f172a;
-      --slate-800: #1e293b;
-      --slate-700: #334155;
-      --slate-600: #475569;
-      --slate-500: #64748b;
-      --slate-400: #94a3b8;
-      --slate-300: #cbd5e1;
-      --slate-200: #e2e8f0;
-      --slate-100: #f1f5f9;
-      --slate-50: #f8fafc;
-      --amber-500: #f59e0b;
-      --amber-400: #fbbf24;
-      --amber-100: #fef3c7;
+      /* Brand palette — deep ink, refined gold, clean surfaces */
+      --ink-900: #080808;
+      --ink-800: #0c0c10;
+      --ink-700: #1a202c;
+      --gold-500: #b8962e;
+      --gold-400: #d4af37;
+      --gold-50: rgba(184, 150, 46, 0.08);
+      --surface-100: #fdfbfb;
+      --surface-200: #ebedee;
+      --surface-300: #eef0f1;
       --white: #ffffff;
+      --text-primary: #0c0c10;
+      --text-secondary: #4a4f59;
+      --text-muted: #6b7280;
 
       /* Typography scale (1.25 ratio) */
       --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
@@ -71,16 +66,17 @@
       --space-8: 3rem;
       --space-10: 4rem;
       --space-12: 5rem;
+      --space-16: 7rem;
 
       /* Radius & shadow */
       --radius-sm: 0.375rem;
       --radius-md: 0.625rem;
       --radius-lg: 0.875rem;
       --radius-xl: 1.125rem;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-      --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
-      --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.25);
+      --shadow-sm: 0 1px 2px rgba(8, 8, 8, 0.05);
+      --shadow-md: 0 4px 12px rgba(8, 8, 8, 0.06);
+      --shadow-lg: 0 12px 32px rgba(8, 8, 8, 0.1);
+      --shadow-focus: 0 0 0 3px rgba(184, 150, 46, 0.3);
 
       /* Layout */
       --container-max: 75rem;
@@ -110,8 +106,8 @@
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       font-size: var(--text-base);
       line-height: 1.65;
-      color: var(--slate-700);
-      background: var(--slate-50);
+      color: var(--text-secondary);
+      background: var(--surface-100);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -153,14 +149,43 @@
       box-shadow: var(--shadow-focus);
     }
 
+    .skip-link {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .skip-link:focus {
+      position: fixed;
+      top: var(--space-4);
+      left: var(--space-4);
+      width: auto;
+      height: auto;
+      clip: auto;
+      display: inline-flex;
+      padding: var(--space-2) var(--space-4);
+      background: var(--gold-500);
+      color: var(--ink-900);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* Header */
     .site-header {
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 50;
-      background: rgba(248, 250, 252, 0.92);
+      background: rgba(8, 8, 8, 0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--slate-200);
+      border-bottom: 1px solid rgba(184, 150, 46, 0.22);
     }
 
     .header-inner {
@@ -175,10 +200,11 @@
       display: flex;
       align-items: center;
       gap: var(--space-3);
-      font-weight: 800;
+      font-family: "Montserrat", "Inter", sans-serif;
+      font-weight: 700;
       font-size: var(--text-lg);
-      color: var(--slate-900);
-      letter-spacing: -0.02em;
+      color: var(--white);
+      letter-spacing: -0.01em;
       min-width: 0;
       white-space: nowrap;
     }
@@ -189,8 +215,9 @@
       width: 2.25rem;
       height: 2.25rem;
       border-radius: var(--radius-md);
-      background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
-      color: var(--white);
+      border: 1px solid rgba(184, 150, 46, 0.45);
+      background: rgba(184, 150, 46, 0.1);
+      color: var(--gold-400);
       flex-shrink: 0;
     }
 
@@ -201,11 +228,12 @@
 
     .header-note {
       display: none;
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-xs);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--slate-500);
+      color: var(--gold-400);
     }
 
     @media (min-width: 640px) {
@@ -217,28 +245,29 @@
     /* Hero */
     .hero {
       position: relative;
-      padding: 8rem 0 var(--space-12);
+      padding: 9rem 0 var(--space-16);
       background:
-        radial-gradient(circle at 80% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 10% 90%, rgba(245, 158, 11, 0.06) 0%, transparent 45%),
-        var(--slate-50);
+        radial-gradient(circle at 85% 15%, rgba(184, 150, 46, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.03) 0%, transparent 40%),
+        linear-gradient(180deg, var(--ink-900) 0%, var(--ink-800) 100%);
       overflow: hidden;
+      border-bottom: 1px solid rgba(184, 150, 46, 0.15);
     }
 
     .hero-pattern {
       position: absolute;
       inset: 0;
-      opacity: 0.35;
+      opacity: 0.18;
       pointer-events: none;
       background-image:
-        linear-gradient(var(--slate-200) 1px, transparent 1px),
-        linear-gradient(90deg, var(--slate-200) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
       background-size: 3.5rem 3.5rem;
     }
 
     .hero-content {
       position: relative;
-      max-width: 46rem;
+      max-width: 48rem;
     }
 
     .hero-kicker {
@@ -246,41 +275,43 @@
       align-items: center;
       gap: var(--space-2);
       padding: var(--space-2) var(--space-3);
-      background: var(--amber-100);
-      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: rgba(184, 150, 46, 0.1);
+      border: 1px solid rgba(184, 150, 46, 0.35);
       border-radius: var(--radius-md);
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-xs);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--slate-800);
-      margin-bottom: var(--space-4);
+      color: var(--gold-400);
+      margin-bottom: var(--space-5);
     }
 
     .hero-kicker svg {
       width: 1rem;
       height: 1rem;
-      color: #d97706;
+      color: var(--gold-500);
     }
 
     .hero-title {
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-4xl);
       font-weight: 800;
       line-height: 1.05;
       letter-spacing: -0.03em;
-      color: var(--slate-900);
+      color: var(--white);
       margin-bottom: var(--space-4);
     }
 
     .hero-title em {
-      color: var(--blue-600);
+      color: var(--gold-400);
       font-style: normal;
     }
 
     .hero-desc {
       font-size: var(--text-lg);
-      color: var(--slate-600);
-      max-width: 34rem;
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 38rem;
       margin-bottom: var(--space-6);
       line-height: 1.65;
     }
@@ -298,6 +329,7 @@
       gap: var(--space-2);
       padding: 0.875em 1.5em;
       border-radius: var(--radius-md);
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-sm);
       font-weight: 700;
       line-height: 1.25;
@@ -321,30 +353,30 @@
     }
 
     .btn-primary {
-      background: var(--blue-600);
-      color: var(--white);
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+      color: var(--ink-900);
+      box-shadow: 0 4px 14px rgba(184, 150, 46, 0.3);
     }
 
     .btn-primary:hover {
-      background: var(--blue-700);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+      background: linear-gradient(135deg, var(--gold-400), #c4a030);
+      box-shadow: 0 6px 20px rgba(184, 150, 46, 0.35);
     }
 
     .btn-secondary {
-      background: var(--white);
-      color: var(--slate-800);
-      border-color: var(--slate-300);
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.25);
     }
 
     .btn-secondary:hover {
-      background: var(--slate-50);
-      border-color: var(--slate-400);
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.4);
     }
 
     /* Sections */
     .section {
-      padding: var(--space-12) 0;
+      padding: var(--space-16) 0;
     }
 
     .section-header {
@@ -355,25 +387,27 @@
 
     .section-label {
       display: block;
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-xs);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--blue-600);
+      color: var(--gold-500);
       margin-bottom: var(--space-3);
     }
 
     .section-title {
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-2xl);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      color: var(--slate-900);
+      color: var(--text-primary);
       margin-bottom: var(--space-3);
     }
 
     .section-desc {
-      color: var(--slate-600);
+      color: var(--text-secondary);
       font-size: var(--text-lg);
       line-height: 1.6;
     }
@@ -381,7 +415,8 @@
     /* Demo cards */
     .demos {
       background: var(--white);
-      border-top: 1px solid var(--slate-200);
+      border-top: 1px solid var(--surface-200);
+      border-bottom: 1px solid var(--surface-200);
     }
 
     .demo-grid {
@@ -392,8 +427,8 @@
     .demo-card {
       display: flex;
       flex-direction: column;
-      background: var(--slate-50);
-      border: 1px solid var(--slate-200);
+      background: var(--surface-100);
+      border: 1px solid var(--surface-200);
       border-radius: var(--radius-xl);
       overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -402,7 +437,7 @@
     .demo-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
-      border-color: var(--slate-300);
+      border-color: rgba(184, 150, 46, 0.35);
     }
 
     .demo-card:focus-within {
@@ -421,13 +456,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      opacity: 0.08;
+      opacity: 0.06;
       background-image: radial-gradient(circle at 1rem 1rem, currentColor 1px, transparent 1px);
       background-size: 1.5rem 1.5rem;
     }
 
     .demo-art.plumbing {
-      background: linear-gradient(135deg, #0c1a2e 0%, #1a3454 100%);
+      background: linear-gradient(135deg, #080808 0%, #1a202c 100%);
     }
 
     .demo-art.vineyard {
@@ -435,14 +470,14 @@
     }
 
     .demo-art.tarps {
-      background: linear-gradient(135deg, var(--slate-800) 0%, var(--slate-700) 100%);
+      background: linear-gradient(135deg, #0c0c10 0%, #1a202c 100%);
     }
 
     .demo-art svg {
       position: relative;
       width: 4rem;
       height: auto;
-      opacity: 0.9;
+      opacity: 0.92;
     }
 
     .demo-art .badge {
@@ -450,13 +485,15 @@
       top: var(--space-3);
       right: var(--space-3);
       padding: var(--space-1) var(--space-2);
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(8, 8, 8, 0.82);
+      border: 1px solid rgba(184, 150, 46, 0.35);
       border-radius: var(--radius-sm);
+      font-family: "Montserrat", sans-serif;
       font-size: 0.65rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--slate-800);
+      color: var(--gold-400);
       box-shadow: var(--shadow-sm);
     }
 
@@ -469,22 +506,24 @@
     }
 
     .demo-tag {
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-xs);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--blue-600);
+      color: var(--gold-500);
     }
 
     .demo-title {
+      font-family: "Montserrat", sans-serif;
       font-size: var(--text-xl);
       font-weight: 800;
       line-height: 1.2;
-      color: var(--slate-900);
+      color: var(--text-primary);
     }
 
     .demo-desc {
-      color: var(--slate-600);
+      color: var(--text-secondary);
       line-height: 1.6;
       flex: 1;
     }
@@ -494,9 +533,10 @@
       align-items: center;
       gap: var(--space-2);
       margin-top: var(--space-2);
+      font-family: "Montserrat", sans-serif;
       font-weight: 700;
-      color: var(--blue-600);
-      transition: gap 0.15s ease;
+      color: var(--gold-500);
+      transition: gap 0.15s ease, color 0.15s ease;
     }
 
     .demo-link svg {
@@ -506,6 +546,7 @@
 
     .demo-card:hover .demo-link {
       gap: var(--space-3);
+      color: var(--gold-400);
     }
 
     @media (min-width: 768px) {
@@ -522,10 +563,11 @@
 
     /* Footer */
     .site-footer {
-      background: var(--slate-900);
-      color: var(--slate-400);
-      padding: var(--space-8) 0 var(--space-6);
+      background: var(--ink-900);
+      color: rgba(255, 255, 255, 0.6);
+      padding: var(--space-10) 0 var(--space-6);
       font-size: var(--text-sm);
+      border-top: 1px solid rgba(184, 150, 46, 0.18);
     }
 
     .footer-inner {
@@ -537,6 +579,7 @@
     }
 
     .footer-brand {
+      font-family: "Montserrat", sans-serif;
       font-weight: 800;
       color: var(--white);
       display: flex;
@@ -547,7 +590,7 @@
     .footer-brand svg {
       width: 1.25rem;
       height: 1.25rem;
-      color: var(--blue-600);
+      color: var(--gold-400);
     }
 
     @media (min-width: 640px) {
@@ -560,7 +603,7 @@
   </style>
 </head>
 <body>
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">Skip to main content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -580,10 +623,10 @@
       <div class="container hero-content">
         <span class="hero-kicker">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Live demo sites
+          Client Showcase
         </span>
-        <h1 id="hero-title" class="hero-title">Conversion-ready websites <em>built for real businesses</em></h1>
-        <p class="hero-desc">A portfolio of production-ready demo sites: local services, luxury brands, and artisan trades. Each one is fast, mobile-first, and designed to turn visitors into customers.</p>
+        <h1 id="hero-title" class="hero-title">Ibarra Ventures Demo Portal</h1>
+        <p class="hero-desc">Your site reimagined and optimized for SEO and AEO. A curated showcase of production-ready demo sites for local businesses, artisans, and service brands — each one fast, mobile-first, and built to turn visitors into customers.</p>
         <div class="hero-actions">
           <a href="#demos" class="btn btn-primary">
             Explore demos
@@ -598,7 +641,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Demo Sites</span>
-          <h2 id="demos-title" class="section-title">Three industries, one design standard</h2>
+          <h2 id="demos-title" class="section-title">Client Showcase</h2>
           <p class="section-desc">Click through to see how the same core system adapts to a plumber, a vineyard, and a local tarp & awning company.</p>
         </div>
 
