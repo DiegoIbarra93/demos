@@ -94,6 +94,7 @@
       --roof-red: #CD3333;
       --roof-red-dark: #A62626;
       --roof-red-light: #E04D4D;
+      --roof-red-on-dark: #FF7871;
       --charcoal-900: #202020;
       --charcoal-800: #23282D;
       --charcoal-700: #2F353B;
@@ -329,6 +330,7 @@
       position: fixed;
       inset: var(--header-height) 0 0 0;
       background: var(--charcoal-900);
+      color: var(--white);
       padding: var(--space-5);
       transform: translateX(100%);
       transition: transform 0.25s ease;
@@ -405,7 +407,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--roof-red-light);
+      color: var(--roof-red-on-dark);
       margin-bottom: var(--space-4);
     }
     .hero-kicker svg { width: 1rem; height: 1rem; }
@@ -667,6 +669,7 @@
     }
     .estimate-content .section-title { color: var(--white); }
     .estimate-content .section-lead { color: rgba(255,255,255,0.7); text-align: left; }
+    .estimate .section-label { color: var(--roof-red-on-dark); }
     .estimate-list {
       display: grid;
       gap: var(--space-3);
@@ -887,7 +890,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--roof-red-light);
+      color: var(--roof-red-on-dark);
       margin-bottom: var(--space-3);
     }
     .footer-list li { margin-bottom: var(--space-2); color: rgba(255,255,255,0.65); }
