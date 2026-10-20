@@ -3,11 +3,9 @@ FROM nginx:alpine
 # Remove default nginx content
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy site content and config
-COPY index.html /usr/share/nginx/html/index.html
-COPY cowboy-plumbing/ /usr/share/nginx/html/cowboy-plumbing/
-COPY long-walk-vineyard/ /usr/share/nginx/html/long-walk-vineyard/
-COPY sharps-tarps/ /usr/share/nginx/html/sharps-tarps/
+# Copy site content and config.
+# This branch owns its own build and ships ONLY the grizzly-plumbing demo.
+COPY grizzly-plumbing/ /usr/share/nginx/html/grizzly-plumbing/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
