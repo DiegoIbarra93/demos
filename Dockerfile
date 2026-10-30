@@ -11,6 +11,7 @@ COPY sharps-tarps/ /usr/share/nginx/html/sharps-tarps/
 COPY grants-pass-heating/ /usr/share/nginx/html/grants-pass-heating/
 COPY rogue-valley-roofing/ /usr/share/nginx/html/rogue-valley-roofing/
 COPY grizzly-plumbing/ /usr/share/nginx/html/grizzly-plumbing/
+COPY south-stage-cellars/ /usr/share/nginx/html/south-stage-cellars/
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
